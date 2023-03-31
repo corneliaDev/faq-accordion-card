@@ -1,0 +1,142 @@
+.card {
+  margin-top: 20vh;
+  width: 105rem;
+  background-color: #fff;
+  box-shadow: 20px 30px 50px 0 rgba(52, 58, 64, 0.46);
+  border-radius: 2rem;
+
+  padding-left: 0;
+  display: flex;
+  transform: scale(1);
+
+  @include respond(mobil) {
+    margin-top: 20vh;
+    width: 85vw;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__images {
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+
+    @include respond(mobil) {
+      width: 100%;
+      overflow: visible;
+      height: 12rem;
+    }
+  }
+
+  &__image-woman {
+    position: absolute;
+    top: 7rem;
+    left: -9rem;
+    width: 100%;
+    @include respond(mobil) {
+      width: 82%;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -60%);
+    }
+  }
+
+  &__image-box {
+    position: fixed;
+    top: 30rem;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    @include respond(mobil) {
+      width: 32%;
+      top: 0;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__image-pattern {
+    width: 192%;
+    position: absolute;
+    top: -30rem;
+    left: -58rem;
+
+    @include respond(mobil) {
+      width: 85%;
+      top: -2rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.faq {
+  padding: 7rem 11rem;
+  padding-left: 2rem;
+  width: 50%;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include respond(mobil) {
+    width: 100%;
+    padding: 6rem 2.5rem;
+  }
+}
+
+.item {
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-light-gray);
+
+  &__checkbox {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    transition: all 0.35s;
+    font-size: 1.8rem;
+    font-weight: 400;
+
+    &:hover {
+      color: var(--color-primary-red);
+      cursor: pointer;
+    }
+  }
+
+  &__select {
+    width: 1.5rem;
+    height: 1rem;
+  }
+
+  &__text {
+    max-height: 0;
+    padding: 0 2rem;
+    color: var(--color-dark-gray);
+    line-height: 1.5;
+    transform: translateX(-1rem);
+  }
+}
+
+input:checked {
+  + .item__label {
+    font-weight: 700;
+    color: var(--color-primary-blue);
+    .item__select {
+      transform: rotate(180deg);
+    }
+  }
+
+  ~ .item__text {
+    max-height: 100vh;
+    padding: 0.5rem 1em;
+    padding-bottom: 1.5rem;
+  }
+}
